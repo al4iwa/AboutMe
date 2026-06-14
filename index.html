@@ -23,6 +23,8 @@ body{
   background-position:center;
   background-repeat:no-repeat;
   position:relative;
+  overflow-x: hidden; /* dit toevoegen */
+  overflow-y: hidden;
 }
 
 .liz-title{
@@ -52,6 +54,7 @@ body{
   color:#5b4633;
   scrollbar-width:thin;
   scrollbar-color: #d4a955 transparent;
+  overflow-x: hidden; /* toevoegen */
 }
 
 .liz-section-label{
@@ -193,20 +196,21 @@ body{
   vertical-align:middle;
 }
 
-.liz-bottom-row{
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
+.liz-bottom-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  flex-wrap: wrap; /* toevoegen zodat het kan wrappen */
 }
 
-.liz-hm-card{
-  background:rgba(253,246,232,0.88);
-  border:0.5px solid #dbb870;
-  border-radius:10px;
-  padding:10px 14px;
-  min-width:160px;
-  max-width:180px;
+.liz-hm-card {
+  background: rgba(253,246,232,0.88);
+  border: 0.5px solid #dbb870;
+  border-radius: 10px;
+  padding: 10px 14px;
+  width: fit-content;
 }
+
 .liz-hm-list{
   list-style:none;
   margin-top:4px;
@@ -230,18 +234,20 @@ body{
 .liz-ships-col{
   flex:1;
 }
-.liz-ship-box{
-  background:rgba(253,246,232,0.88);
-  border-left:3px solid #c49a3c;
-  border-radius:0 10px 10px 0;
-  padding:3px 16px;
-  font-style:italic;
-  font-size:13px;
-  color:#7a5136;
-  line-height:1.6;
-  font-family:Georgia, serif;
+
+.liz-ship-box {
+  background: rgba(253,246,232,0.88);
+  border-left: 3px solid #c49a3c;
+  border-radius: 0 10px 10px 0;
+  padding: 3px 16px;
+  font-style: italic;
+  font-size: 13px;
+  color: #7a5136;
+  line-height: 1.6;
+  font-family: Georgia, serif;
+  width: fit-content;
 }
-/* zelfde stijl als liz-first-sub */
+
 .liz-ship-label{
   font-style:normal;
   font-size:11px;
@@ -257,6 +263,13 @@ body{
   color:#c49a3c;
   font-weight:700;
 }
+
+@media (max-width: 600px) {
+.liz-bottom-row {
+    flex-direction: column; /* onder elkaar op mobile */
+}
+}
+
 </style>
 </head>
 <body>
